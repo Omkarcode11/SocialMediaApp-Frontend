@@ -1,0 +1,10 @@
+.profile-layout {
+  display: grid;
+  grid-template-columns: 75vw auto;
+}
+
+.info-posts {
+  padding: 1rem 3rem;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}

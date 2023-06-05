@@ -1,0 +1,14 @@
+.footer-layout {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: '#f0edd4';
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background-color:rgb(249, 251, 231);
+  z-index: 2;
+  width: calc(100vw/1);
+  padding: 1rem 0rem;
+}
+

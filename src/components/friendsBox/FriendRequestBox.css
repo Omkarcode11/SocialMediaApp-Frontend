@@ -1,0 +1,20 @@
+
+.user-profile-short {
+  /* margin: 0.5rem 0rem; */
+  /* width: calc(100vw / 6); */
+  padding: 1rem;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  border-bottom: 1px solid gray;
+  background-color: '#fea1a1';
+  align-items:flex-start;
+}
+
+.accept-reject-icon{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-left: 2rem;
+}

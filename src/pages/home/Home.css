@@ -1,0 +1,30 @@
+.Home-layout {
+  padding: 1.5rem 2rem;
+  display: grid;
+  column-gap: 1rem;
+   grid-template-columns: 20vw auto 20vw
+}
+
+.footer-section{
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+  .trending-sections {
+    display: none;
+  }
+
+  .friends-section{
+    display: none;
+  }
+  .Home-layout{
+    grid-template-columns: 100%;
+  }
+  .footer-section{
+    display: flex;
+  }
+  
+
+}

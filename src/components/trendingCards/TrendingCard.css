@@ -1,0 +1,19 @@
+.trending-card-layout{
+    /* margin: 0.5rem 0rem;
+    width: calc(100vw/5); */
+    padding: 1rem 1.5rem;
+    border: 1px solid gray;
+    border-radius: 0.3rem;
+    word-wrap: break-word;
+}
+
+.trending-tags-title{
+    border-bottom: 1px solid gray;
+    margin-bottom: 0.5rem;
+}
+
+.trending-tags{
+    border-bottom: 1px solid rgb(150, 150, 150);
+    padding: 0.5rem 0rem;
+    
+}

@@ -1,0 +1,20 @@
+.notify-layout{
+   z-index: 44;
+   position: fixed;
+   left: 40%;
+   top: -10%;
+   animation-name: notify;
+   animation-duration: 2s;
+   padding: 1rem;
+   border-radius: 0.4rem;
+}
+
+
+@keyframes notify {
+ from {top: 0%;}
+  to {top: 10%;}
+}
+
+
+
+

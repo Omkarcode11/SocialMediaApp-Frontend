@@ -1,0 +1,54 @@
+.postCard-layout {
+  display: flex;
+  flex-flow: column wrap;
+  border: 1px solid gray;
+  padding: 1rem;
+  margin: 1rem 0rem;
+  border-radius: 0.3rem;
+}
+
+.post-header {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem 0rem;
+  background-color: "#F9FBE7";
+}
+
+.full-name {
+  font-weight: 500;
+}
+
+.short-name {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.post-caption {
+  padding: 1rem 0.5rem;
+}
+
+.post-image {
+  text-align: center;
+  
+  object-fit: contain;
+}
+
+.post-main-img {
+  max-width:100%;
+  aspect-ratio: 6/5;
+  object-fit: contain;
+}
+
+.like-comment-icon {
+  border-top: 1px solid gray;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1rem 4rem;
+  padding-bottom: 0rem;
+  justify-content: space-between;
+}
+
+.like-btn {
+}
