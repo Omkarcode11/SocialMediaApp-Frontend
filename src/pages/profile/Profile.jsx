@@ -4,6 +4,7 @@ import CoverProfile from "../../components/coverProfile/CoverProfile";
 import SelfInfo from "../../components/selfInfo/SelfInfo";
 import MyPosts from "../../components/myPosts/MyPosts";
 import FriendList from "../../components/friendLists/FriendList";
+import Trending from "../../components/trending/Trending";
 
 function Profile() {
   return <div className="profile-layout">
@@ -16,8 +17,11 @@ function Profile() {
         <MyPosts/>
       </div>
     </div>
-    <div>
+    <div className="myprofile-rightsection">
       <FriendList/>
+      
+      <Trending/>
+      
     </div>
   </div>;
 }

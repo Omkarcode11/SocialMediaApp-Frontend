@@ -1,8 +1,8 @@
 .trending-card-layout{
-    /* margin: 0.5rem 0rem;
-    width: calc(100vw/5); */
+ margin: 0.5rem 0rem; 
+   
     padding: 1rem 1.5rem;
-    border: 1px solid gray;
+    border: 2px solid gray;
     border-radius: 0.3rem;
     word-wrap: break-word;
 }

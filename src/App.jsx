@@ -9,19 +9,20 @@ import Profile from "./pages/profile/Profile";
 import Footer from "./components/footer/Footer";
 import Trending from "./components/trending/Trending";
 import Friends from "./components/friends/Friends";
+import { currentUrl } from "./utils/BaseUrl";
+import Search from "./pages/search/Search";
 
 
 function App() {
  
 
-  console.log(window.location.href!=`http://localhost:5173/signin`)
   return (
     <div>
         <BrowserRouter>
       <div>
-        {window.location.href!=`http://localhost:5173/signup` && window.location.href!=`http://localhost:5173/signin` ? 
+        {/* {window.location.href!=`${currentUrl}/signup` || window.location.href!=`${currentUrl}/signin` ? 
+        : ""} */}
         <Header/>
-        : ""}
       </div>
         <Routes>
           <Route path="/signup" element={<SignUp />} />
@@ -31,6 +32,7 @@ function App() {
           <Route path="*" element={<Error />} />
           <Route path="/trendingTags" element={<Trending />} />
           <Route path="/friends" element={<Friends/>} />
+          <Route path='/search' element={<Search/>}/>
         </Routes>
         <div className='footer-section'>
       <Footer />

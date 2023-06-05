@@ -1,0 +1,26 @@
+.search-layout{
+    padding: 6rem 2rem;
+
+}
+
+.search-friends-search{
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    width: 80vw;
+    justify-content: space-between;
+    border: 1px solid gray;
+    border-radius: 0.3rem;
+
+}
+.search-friends-search>input{
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.3rem ;
+}
+
+
+.search-suggested-friend{
+    margin: 3rem 0.3rem 0rem 0rem;
+}

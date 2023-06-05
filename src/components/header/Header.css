@@ -1,18 +1,20 @@
 .headerLayout{
+
     background-color: #F9FBE7;
-    padding: 1rem 1.5rem;
+    padding : 1rem 0rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    width: 100vw;
-    max-width:96%;
-    margin: 0;
+    top: 0;
+    width:100vw;
+    z-index: 3
 }
 
 .title-logo{
     text-align: center;
+    cursor: pointer;
 }
 
 .headers-utils{
@@ -51,18 +53,12 @@
     .headers-utils{
         display: none;
     }
-    .hamburger-menu{
-        display: inline;
-        position: fixed;
-        top:1rem;
-        right: 5rem;
-        background-color: #ECCDB4;
-        padding: 1rem;
-        border-radius: 2rem;
-    }
+    
     .menu{
         line-height: 1rem;
-        display: inline;
+        display: flex;
+        gap: 1rem;
+        
     }
     .hamburger-icons{
         display: flex;
