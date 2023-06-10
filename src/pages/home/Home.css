@@ -2,7 +2,7 @@
   padding: 6rem 2rem;
   display: grid;
   column-gap: 1rem;
-   grid-template-columns: 20vw auto 20vw
+   grid-template-columns: 19vw auto 22vw
 }
 
 .footer-section{

@@ -5,10 +5,13 @@ import { CiSearch, CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
   let [mode, setMode] = useState(true);
   let search = useRef("");
+  let {firstName,avatar,id}=useSelector((state)=>state.auth)
+
 
   const navigate = useNavigate();
 
@@ -35,12 +38,14 @@ function Header() {
           <MdDarkMode size={"2rem"} onClick={() => setMode(!mode)} />
         )}
         <AiFillSetting size={"2rem"} />
-
+       <div  onClick={() => navigate(`/profile/${id}`)}>
+      {avatar ? <img src="avatar" /> : firstName ? <h3 className="firstName">{firstName[0].toUpperCase()+firstName.slice(1)}</h3>:
         <RxAvatar
-          size={"2rem"}
-          style={{ marginRight: "1rem" }}
-          onClick={() => navigate("/profile/:id")}
+        size={"2rem"}
+        style={{ marginRight: "1rem" }}
         />
+      }
+          </div>
       </div>
 
       <div className="menu">

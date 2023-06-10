@@ -1,11 +1,11 @@
 import { URL } from "../utils/BaseUrl";
 import axios from "axios";
 
-async function useGetApi(path) {
-  let {data }= await axios.get(URL + path);
+async function useGetApi(path,headers={}) {
+  let {data} = await axios.get(URL + path,headers);
  
 
-  return data;
+  return data
 }
 
 export default useGetApi;

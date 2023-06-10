@@ -18,11 +18,7 @@ export default function SignUp() {
   });
 
   async function createUser() {
-    user.name = user.firstName + " " + user.lastName;
-    user.userName = user.firstName;
     user.email.toLowerCase();
-    delete user.firstName;
-    delete user.lastName;
 
     let data = await usePostApi("/auth/signup", user);
 
@@ -94,7 +90,7 @@ export default function SignUp() {
           </div>
           <div className="signUp-input">
             <label>Phone</label>
-            <input required type="number" value={user.phone} name="phone" />
+            <input required type="tel" value={user.phone} name="phone" />
           </div>
           <div className="signUp-input">
             <label>Email</label>

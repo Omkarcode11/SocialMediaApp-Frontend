@@ -7,9 +7,25 @@
 .info-posts {
   padding: 1rem 3rem;
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 30% auto;
+  /* flex-flow: row wrap; */
+  /* align-items: center; */
 }
 
 
-.myprofile-rightsection{
+
+@media only screen and (max-width:1027px) {
+  .my-profile-right-section{
+  
+    display: none;
+  }
+  .profile-layout {
+    padding: 6rem 1rem;
+    display: grid;
+    grid-template-columns: auto;
+}
+.info-posts{
+  display: flex;
+  flex-flow: row wrap;
+}
 }

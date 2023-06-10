@@ -1,36 +1,40 @@
 import React from 'react'
 import './SelfInfo.css'
+import { useSelector } from 'react-redux'
 
 function SelfInfo() {
+
+  let {firstName,lastName,bio,work,city,status,friends,DOB} = useSelector((state)=>state.auth)
+
   return (
     <div className='info-layout'>
       <div className='info-sec'>
         <h3 className='info-title'>Name </h3>
-        <span> Omkar Sonawane</span>
+        <span>{firstName&& lastName ? firstName[0].toUpperCase()+firstName.slice(1) +" " +lastName[0].toUpperCase()+lastName.slice(1):"Not Set"}</span>
       </div>
       <div className='info-sec'>
         <h3 className='info-title'>Bio </h3>
-        <span> I am a self motivated person</span>
+        <span>{bio ? bio :"Not Set"}</span>
       </div>
       <div className='info-sec'>
         <h3 className='info-title'>working </h3>
-        <span> Omkar Tattoo</span>
+        <span>{work ? work : "Not Set"}</span>
       </div>
       <div className='info-sec'>
         <h3 className='info-title'>City </h3>
-        <span> Nashik</span>
+        <span> {city?city[0].toUpperCase()+city.slice(1) :"Not Set"}</span>
       </div>
       <div className='info-sec'>
         <h3 className='info-title'>Status </h3>
-        <span> Single</span>
+        <span>{status ? status[0].toUpperCase()+status.slice(1)  :"Not Set"}</span>
       </div>
       <div className='info-sec'>
         <h3 className='info-title'>Friends </h3>
-        <span> 206</span>
+        <span>{friends.length}</span>
       </div>
       <div className='info-sec'>
         <h3 className='info-title'>Date of Birth </h3>
-        <span> 12/12/2001</span>
+        <span>{DOB ? DOB : "Not Set"} </span>
       </div>
     </div>
   )

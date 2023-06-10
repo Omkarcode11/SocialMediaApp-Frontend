@@ -11,6 +11,9 @@
     width:100vw;
     z-index: 3
 }
+.firstName{
+    margin-right: 1.5rem;
+}
 
 .title-logo{
     text-align: center;
