@@ -12,7 +12,7 @@ function UserPosts() {
   const [show, setShow] = useState("none");
   const caption = useRef();
   const [img, setImg] = useState("");
-  const { id,isAuthenticated } = useSelector((state) => state.auth);
+  const { id,isAuthenticated  } = useSelector((state) => state.auth);
   const [page, setPage] = useState(1);
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate()
@@ -54,9 +54,10 @@ function UserPosts() {
     let path = `/post/WholePosts?page=${page}`;
 
     let data = await useGetApi(path);
-    console.log(data)
     setPosts((prev) => [...prev, ...data]);
   }
+
+
 
 
   useEffect(() => {
@@ -107,7 +108,7 @@ function UserPosts() {
         />
       </div>
     {posts.map((post)=>
-      <PostCard caption={post.caption} photo={post.photo} id={post.userId} postLike={post.like} comments={post.comments}  />
+      <PostCard key={post._id} caption={post.caption} photo={post.photo} id={post.userId} postLike={post.like} comments={post.comments} postId={post._id}  />
     )}
     </div>
   );

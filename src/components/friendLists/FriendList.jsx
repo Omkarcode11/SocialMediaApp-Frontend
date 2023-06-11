@@ -16,7 +16,6 @@ function FriendList() {
     setDiscoverFr(data);
   }
 
-  console.log(discoverFr);
 
   useEffect(() => {
     getNotFriends();

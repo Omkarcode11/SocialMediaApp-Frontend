@@ -6,17 +6,21 @@ import { currentUrl } from "../../utils/BaseUrl";
 import useGetApi from "../../hooks/useGetApi";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import usePostApi from "../../hooks/usePostApi";
 
 function Friends() {
   let [showClass, setShowClass] = useState("");
   let [notFriendData, setNotFriendData] = useState([]);
   let [sendedRequests, setSendedRequests] = useState([]);
   let [friendRequest, setFriendRequest] = useState([]);
-  let { id ,isAuthenticated} = useSelector((state) => state.auth);
-  let navigate = useNavigate()
+  let { id, isAuthenticated, friendRequests, sendFriendReq,friends } = useSelector(
+    (state) => state.auth
+  );
+  let navigate = useNavigate();
 
   async function gettingNotFriendUser() {
-    let data = await useGetApi(`/user/notMyFriends/${id}`, {
+    let arrayIds = [id,...friendRequests,...sendFriendReq,...friends]
+    let data = await usePostApi(`/user/notMyFriends`,{userId : id,ids: arrayIds } ,{
       headers: {
         Authorization: "Berar " + localStorage.getItem("FreedomToken"),
       },
@@ -25,22 +29,28 @@ function Friends() {
   }
 
   async function getSendedRequests() {
-    let data = await useGetApi(`/user/sendedFriendRequests/${id}`, {
-      headers: {
-        Authorization: "Berar " + localStorage.getItem("FreedomToken"),
-      },
-    });
+    let data = await usePostApi(
+      `/user/findAllIds/${id}`,
+      { ids: sendFriendReq },
+      {
+        headers: {
+          Authorization: "Berar " + localStorage.getItem("FreedomToken"),
+        },
+      }
+    );
     setSendedRequests(data);
   }
-
-
-
   async function getFriendRequests() {
-    let data = await useGetApi(`/user/friendRequests/${id}`, {
-      headers: {
-        Authorization: "Berar " + localStorage.getItem("FreedomToken"),
-      },
-    });
+    let data = await usePostApi(
+      `/user/findAllIds/${id}`,
+      { ids: friendRequests },
+      {
+        headers: {
+          Authorization: "Berar " + localStorage.getItem("FreedomToken"),
+        },
+      }
+    );
+    console.log(data);
     setFriendRequest(data);
   }
 
@@ -53,22 +63,31 @@ function Friends() {
   }, [window.location.href]);
 
   useEffect(() => {
-    if(isAuthenticated){
-
+    if (isAuthenticated) {
       gettingNotFriendUser();
       getSendedRequests();
       getFriendRequests();
-    }else{
-      navigate('/signin')
+    } else {
+      navigate("/signin");
     }
   }, [isAuthenticated]);
 
   return (
     <div className={showClass}>
       <h1>Friend Requests</h1>
-      {friendRequest?.map((user)=>
-      <FriendsBox title={"Friends Request"} name={user.firstName[0].toUpperCase()+user.firstName.slice(1)+" "+user.lastName[0].toUpperCase()+user.lastName.slice(1)} userId={user.firstName[0].toUpperCase()+user.firstName.slice(1)} />
-      )}
+      {friendRequest?.map((user) => (
+        <FriendsBox
+          title={"Friends Request"}
+          name={
+            user.firstName[0].toUpperCase() +
+            user.firstName.slice(1) +
+            " " +
+            user.lastName[0].toUpperCase() +
+            user.lastName.slice(1)
+          }
+          userId={user.firstName[0].toUpperCase() + user.firstName.slice(1)}
+        />
+      ))}
       <h1>Sended Requests</h1>
       {sendedRequests?.map((user) => (
         <SuggestedFriends

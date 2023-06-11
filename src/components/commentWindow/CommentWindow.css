@@ -1,0 +1,38 @@
+.post-comment {
+  display: block;
+  position: fixed;
+  bottom: 3rem;
+  z-index: 50;
+}
+
+.comment-post {
+  font-size: 1.5rem;
+  padding: 0.2rem 0rem;
+}
+
+.comment-input {
+  width: 40vw;
+  border-color: #FEA1A1;
+  outline: none;
+}
+.comment-post-btn {
+    width: 10vw;
+    background-color: #FEA1A1;
+    color: white;
+    /* border: none; */
+    border-color: #FEA1A1;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .comment-input{
+        width: 60vw;
+        left: 10vw;
+    }
+
+    .comment-post-btn {
+        width: 20vw;
+    }
+}

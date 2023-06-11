@@ -9,11 +9,9 @@ function MyPosts() {
 
   async function getMyPosts() {
     let data = await useGetApi(`/post/get/user/${id}`);
-    console.log(data);
     setMyPosts(data);
   }
 
-  console.log(myPosts);
 
   useEffect(() => {
     getMyPosts();
@@ -24,11 +22,12 @@ function MyPosts() {
       {myPosts?.map((posts) => (
         <PostCard
           key={posts._id}
-          photo={posts.photo}
           caption={posts.caption}
+          photo={posts.photo}
           id={posts.userId}
-          comments={posts.comments}
           postLike={posts.like}
+          comments={posts.comments}
+          postId ={posts._id}
         />
       ))}
     </div>

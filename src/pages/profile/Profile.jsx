@@ -9,36 +9,32 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
-  const {isAuthenticated} = useSelector((state)=>state.auth)
-  const navigate = useNavigate()
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/signin");
+    }
+  }, [isAuthenticated]);
 
-
-  useEffect(()=>{
-   if(!isAuthenticated){
-    navigate('/signin')
-   }
-  },[isAuthenticated])
-
-
-
-
-
-  return <div className="profile-layout">
-    <div className="profile-all-info">
-      <div>
-      <CoverProfile/>
+  return (
+    <div className="profile-layout">
+      <div className="profile-all-info">
+        <div>
+          <CoverProfile />
+        </div>
+        <div className="info-posts">
+          <SelfInfo />
+          <MyPosts />
+        </div>
       </div>
-      <div className="info-posts">
-        <SelfInfo/>
-        <MyPosts/>
+      <div className="my-profile-right-section">
+        <FriendList />
+        <Trending />
       </div>
     </div>
-    <div className="my-profile-right-section">
-      <FriendList/>
-      <Trending/>
-    </div>
-  </div>;
+  );
 }
 
 export default Profile;

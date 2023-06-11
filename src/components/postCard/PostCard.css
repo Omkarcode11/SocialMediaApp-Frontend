@@ -52,3 +52,19 @@
 
 .like-btn {
 }
+
+.align{
+  display: flex;
+  align-items: center;
+}
+
+.count{
+  font-size: 1.3rem;
+  line-height: -10px;
+}
+
+.align-start{
+  padding: 0.3rem 1rem;
+  text-align: start;
+  cursor: pointer;
+}

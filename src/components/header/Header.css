@@ -13,6 +13,7 @@
 }
 .firstName{
     margin-right: 1.5rem;
+    cursor: pointer;
 }
 
 .title-logo{

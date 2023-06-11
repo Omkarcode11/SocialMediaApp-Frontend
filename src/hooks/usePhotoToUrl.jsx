@@ -11,7 +11,6 @@ function usePhotoToUrl(userImg) {
     setImgString(data.result)
   });
 
-  console.log(imgString);
   return imgString;
 }
 
