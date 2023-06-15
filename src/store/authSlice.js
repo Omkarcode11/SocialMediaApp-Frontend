@@ -29,7 +29,7 @@ const authSlice = createSlice({
             state.email = action.payload.email
             state.phone = action.payload.phone
             state.myPosts = action.payload.myPosts,
-            state.friends = action.payload.myFriends
+                state.friends = action.payload.myFriends
             state.friendRequests = action.payload.friendReq
             state.sendFriendReq = action.payload.sendFriendReq
             state.likedPosts = action.payload.likedPosts
@@ -50,12 +50,27 @@ const authSlice = createSlice({
                 myUserId: "",
                 token: ""
             }
-        }
+        },
+        acceptFriendReq(state, action) {
+            let index = state.friendRequests.indexOf(action.payload)
+            state.friendRequests.splice(index, 1)
+            state.friends.push(action.payload)
+
+        },
+        sendFriendReq(state, action) {
+            state.sendFriendReq.push(action.payload)
+        },
+        declineFriendReq(state, action) {
+            let index = state.friendRequests.indexOf(action.payload)
+            state.friendRequests.splice(index, 1)
+
+        },
+
     }
 })
 
 
-export const { addToken, changeAuthentication, addUser, changeTheme, logout } = authSlice.actions
+export const { addToken, changeAuthentication, addUser, changeTheme, logout, sendFriendReq, acceptFriendReq, declineFriendReq } = authSlice.actions
 
 
 export default authSlice.reducer

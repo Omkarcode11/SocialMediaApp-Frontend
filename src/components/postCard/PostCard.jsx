@@ -4,7 +4,7 @@ import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import "./PostCard.css";
 import useGetApi from "../../hooks/useGetApi";
 import { URL } from "../../utils/BaseUrl";
-import usePutApi from "../../hooks/usePutApi copy";
+import usePutApi from "../../hooks/usePutApi";
 import LikedWindow from "../likedWindow/LikedWindow";
 import CommentWindow from "../commentWindow/CommentWindow";
 

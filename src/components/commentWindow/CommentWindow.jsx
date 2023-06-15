@@ -3,7 +3,7 @@ import Comment from "../comment/Comment";
 import { CgClose } from "react-icons/cg";
 import "./CommentWindow.css";
 import { useSelector } from "react-redux";
-import usePutApi from "../../hooks/usePutApi copy";
+import usePutApi from "../../hooks/usePutApi";
 
 function CommentWindow({ setShowCommentWindow, postId, comments }) {
   const [postComments, setPostComments] = useState(comments);

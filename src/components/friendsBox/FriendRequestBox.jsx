@@ -3,7 +3,10 @@ import "./FriendRequestBox.css";
 import {TiTick} from 'react-icons/ti'
 import {VscChromeClose} from 'react-icons/vsc'
 
-function FriendRequestBox({ name, userId }) {
+function FriendRequestBox({ name, userId,frId }) {
+
+  console.log(frId)
+
   return (
    
       <div className="user-profile-short">
