@@ -7,8 +7,10 @@ import { URL } from "../../utils/BaseUrl";
 import usePutApi from "../../hooks/usePutApi";
 import LikedWindow from "../likedWindow/LikedWindow";
 import CommentWindow from "../commentWindow/CommentWindow";
+import { useSelector } from "react-redux";
 
-function PostCard({ caption, photo, id, postLike, comments, postId }) {
+function PostCard({ caption, photo, postLike, comments, postId }) {
+  const { id } = useSelector((state) => state.auth);
   let bool = postLike.includes(id) ? false : true;
   const [like, setLike] = useState(bool);
   const [likeCountUser, setLikeCountUser] = useState(postLike);
@@ -31,6 +33,7 @@ function PostCard({ caption, photo, id, postLike, comments, postId }) {
   }
 
   async function postLikeHandler(str) {
+    debugger;
     let data;
     if (str == "like") {
       let body = { postId: postId, userId: id };

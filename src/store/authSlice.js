@@ -52,25 +52,36 @@ const authSlice = createSlice({
             }
         },
         acceptFriendReq(state, action) {
+            debugger
             let index = state.friendRequests.indexOf(action.payload)
             state.friendRequests.splice(index, 1)
             state.friends.push(action.payload)
+            return state
 
         },
         sendFriendReq(state, action) {
             state.sendFriendReq.push(action.payload)
         },
-        declineFriendReq(state, action) {
+        rejectFriendRequest(state, action) {
             let index = state.friendRequests.indexOf(action.payload)
             state.friendRequests.splice(index, 1)
 
         },
+        revokeRequest(state, action) {
+            let index = state.sendFriendReq.indexOf(action.payload)
+            state.sendFriendReq.splice(index, 1)
+        },
+        removeFriend(state, action) {
+            debugger
+            let index = state.friends.indexOf(action.payload)
+            state.friends.splice(index, 1)
+        }
 
     }
 })
 
 
-export const { addToken, changeAuthentication, addUser, changeTheme, logout, sendFriendReq, acceptFriendReq, declineFriendReq } = authSlice.actions
+export const { addToken, changeAuthentication, addUser, changeTheme, logout, sendFriendReq, acceptFriendReq, rejectFriendRequest, revokeRequest,removeFriend } = authSlice.actions
 
 
 export default authSlice.reducer

@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import "./SendedFriendReq.css";
+import React from "react";
+import "./MyFriends.css";
 
 import { MdPersonRemoveAlt1 } from "react-icons/md";
-import usePatchApi from "../../hooks/usePatchApi";
-import { revokeRequest } from "../../store/authSlice";
+import { removeFriend } from "../../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
+import usePutApi from "../../hooks/usePutApi";
 
-function SendedFriendReq({ name, userId, frId }) {
+function MyFriends({ name, userId, frId }) {
   const { id } = useSelector((state) => state.auth);
   let dispatcher = useDispatch();
 
-  async function unSendFriendRequest() {
+  async function removeFri() {
+    debugger
     let headers = {
       headers: {
         authorization: "Brear " + localStorage.getItem("FreedomToken"),
@@ -21,9 +22,9 @@ function SendedFriendReq({ name, userId, frId }) {
       friendId: frId,
     };
 
-    let data = await usePatchApi("/user/revokeRequest", body, headers);
+    let data = await usePutApi("/user/removeFriend", body, headers);
     if (data) {
-      dispatcher(revokeRequest(frId));
+      dispatcher(removeFriend(frId));
     }
   }
 
@@ -37,15 +38,14 @@ function SendedFriendReq({ name, userId, frId }) {
         <p className="short-name">{userId}</p>
       </div>
       <div className="accept-reject-icon">
-          <MdPersonRemoveAlt1
-            size={"2.2rem"}
-            color="#FEA1A1"
-            onClick={() => unSendFriendRequest()}
-          />
-        
+        <MdPersonRemoveAlt1
+          size={"2.2rem"}
+          color="#FEA1A1"
+          onClick={() => removeFri()}
+        />
       </div>
     </div>
   );
 }
 
-export default SendedFriendReq;
+export default MyFriends;
