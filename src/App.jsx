@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import SignUp from "./pages/signUp/SignUp";
 import Error from "./pages/error/Error";
-import SignIn from "./pages/signIn/signIn";
+import SignIn from "./pages/signIn/SignIn";
 import Home from "./pages/home/Home";
 import Header from "./components/header/Header";
 import Profile from "./pages/profile/Profile";
