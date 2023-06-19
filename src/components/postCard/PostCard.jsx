@@ -19,6 +19,7 @@ function PostCard({ caption, photo, postLike, comments, postId }) {
   const [showCommentWindow, setShowCommentWindow] = useState(false);
 
   async function getUserInfo() {
+    
     let path = `/user/id/${id}`;
     let data = await useGetApi(path);
     setUser({
